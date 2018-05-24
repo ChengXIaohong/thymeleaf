@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">访问model</h3>
+    </div>
+    <div class="panel-body">
+        <span th:text="${singlePerson.name}"></span>
+        <span th:text="${singlePerson.age}"></span>
+    </div>
+</div>
+<div th:if="${not #lists.isEmpty(people)}">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">列表和条件判断</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" th:each="person : ${people}">
+                    <span th:text="${person.name}"></span>
+                    <span th:text="${person.age}" ></span>
+                    <button class="btn" th:onclick="'getName(\''+${person.name}+'\');'">获得名字</button>
+                    <button class="btn" th:onclick="'say(\''+${person.name}+'\',\''+${person.age}+'\');'">简单介绍</button>
+                    <label>
+                        <span class="label label-danger" th:if ="${person.age} le 17" >未成年</span>
+                        <span class="label label-warning" th:if ="${person.age} le 22 and ${person.age} gt 18" >已成年</span>
+                        <span class="label label-warning" th:if ="${person.age} le 32 and ${person.age} gt 22" >青壮年</span>
+                        <span class="label label-warning" th:if ="${person.age} le 40 and ${person.age} gt 32" >老年初期</span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script th:src="@{https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js}"></script>
+<script th:src="@{https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+<script th:inline="javascript">
+
+    //传两个参数
+    function getName(name) {
+        console.log(name);
+    }
+    //传一个参数
+    function say(name,age) {
+        console.log("my name is " + name + "," + age + " years old")
+    }
+    //页面加载完成之后输入列表数据 JSON
+    $(function () {
+
+        var single = [[${singlePerson}]];
+        console.log(single.name+"/"+single.age);
+console.log("============================================================= 上：单个对象数据获取  下：列表对象获取");
+        var person = [[${people}]];
+        console.info(person);
+    })
+</script>
+</body>
+</html>
+
+<a th:href="@{/redirect}" >redirect</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a th:href="@{/dispatcher}">model</a>
+</body>
+</html>
