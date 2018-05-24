@@ -49,7 +49,7 @@
                             <button class="btn" th:text="${person.sex}"></button>
                             <button class="btn" th:onclick="'getName(\''+${person.name}+'\');'">获得名字</button>
                             <button class="btn" th:onclick="'say(\''+${person.name}+'\',\''+${person.age}+'\');'">简单介绍</button>
-                        </li>
+        </li>
             
 
                   

@@ -59,7 +59,7 @@ public class demoController {
      */
     @RequestMapping("/dispatcher")
     public String dispatcher(Model model , String name){
-        model.addAttribute("interfaceName", StringUtils.isEmpty(name) ? "程小洪" : name);
+        model.addAttribute("interfaceName", StringUtils.isEmpty(name) ? "cxh" : name);
         return "hello";
     }
 }
