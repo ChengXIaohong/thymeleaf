@@ -5,7 +5,8 @@
 3.thymeleaf基本语法
 流程：
 ##### 流程
-######  1：pom添加依赖   <dependency>
+######  1：pom添加依赖   
+                          <dependency>
                               <groupId>org.springframework.boot</groupId>
                               <artifactId>spring-boot-starter-thymeleaf</artifactId>
                               <version>1.0.2.RELEASE</version>
@@ -17,9 +18,10 @@
                                   <thymeleaf.version> 3.0.2.RELEASE </thymeleaf.version>
                                   <thymeleaf-layout-dialect.version> 2.1.1 </thymeleaf-layout-dialect.version>
                           </properties> 
-######  2：配置thymeleaf参数 server:
+######  2：配置thymeleaf参数 
+                            server:
                               port: 8009
-                             spring:
+                            spring:
                               thymeleaf:
                                 mode: HTML5
                                 cache: false #不开启缓存 这样可以修改html模版文件直接刷新页面看结果
