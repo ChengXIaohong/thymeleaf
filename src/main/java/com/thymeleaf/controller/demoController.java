@@ -46,8 +46,8 @@ public class demoController {
      */
     @RequestMapping("/redirect")
     public String redirect(RedirectAttributes redirectAttributes){
-        String interfaceName = "程小洪";
-        redirectAttributes.addAttribute("name", "外跳-程小洪");
+        String interfaceName = "cxh";
+        redirectAttributes.addAttribute("name", "外跳-cxh");
         return "redirect:/dispatcher";
     }
 

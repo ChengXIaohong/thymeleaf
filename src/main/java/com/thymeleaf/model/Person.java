@@ -46,7 +46,7 @@ public class Person {
     enum Sex{
         MAN(1,"男"),
         MAAM(0,"女"),
-        UNKNOWN(3,"女");
+        UNKNOWN(3,"未知");
         private Integer sexBiz;
         private String sex;
 
@@ -76,7 +76,7 @@ public class Person {
                     return sexEnum;
                 }
             }
-            return null;
+            return UNKNOWN;
         }
     };
 
