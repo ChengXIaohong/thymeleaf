@@ -16,6 +16,7 @@
     <div class="panel-body">
         <span th:text="${singlePerson.name}"></span>
         <span th:text="${singlePerson.age}"></span>
+        <span th:text="${singlePerson.sex}"></span>
     </div>
 </div>
 <div th:if="${not #lists.isEmpty(people)}">
@@ -28,6 +29,7 @@
                 <li class="list-group-item" th:each="person : ${people}">
                     <span th:text="${person.name}"></span>
                     <span th:text="${person.age}" ></span>
+                    <button class="btn" th:text="${person.sex}"></button>
                     <button class="btn" th:onclick="'getName(\''+${person.name}+'\');'">获得名字</button>
                     <button class="btn" th:onclick="'say(\''+${person.name}+'\',\''+${person.age}+'\');'">简单介绍</button>
                     <label>
@@ -67,7 +69,7 @@ console.log("============================================================= 上�
 </body>
 </html>
 
-<a th:href="@{/redirect}" >redirect</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a th:href="@{/redirect}" >redirect</a> <span style="width:30px"></span>
 <a th:href="@{/dispatcher}">model</a>
 </body>
 </html>
